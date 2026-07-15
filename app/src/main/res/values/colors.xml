@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#0A0E1A</color>
+    <color name="bg_card">#12182B</color>
+    <color name="bg_card_light">#161D33</color>
+    <color name="stroke_green">#2600E676</color>
+    <color name="green_main">#00E676</color>
+    <color name="green_light">#69F0AE</color>
+    <color name="green_dark">#00C853</color>
+    <color name="text_primary">#F0F4FF</color>
+    <color name="text_secondary">#9AA5C0</color>
+    <color name="text_on_green">#0A0E1A</color>
+    <color name="red_danger">#FF5252</color>
+    <color name="transparent">#00000000</color>
+    <color name="card_blue_start">#29B6F6</color>
+    <color name="card_blue_end">#0288D1</color>
+</resources>
