@@ -87,9 +87,36 @@ public class PaymentActivity extends AppCompatActivity {
             cardNumberPreview.setText(display.toString());
         }));
 
-        inputCardExpiry.addTextChangedListener(simpleWatcher(s ->
-                cardExpiryPreview.setText(TextUtils.isEmpty(s) ? "••/••" : s)
-        ));
+        inputCardExpiry.addTextChangedListener(new TextWatcher() {
+    private boolean isEditing;
+
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        if (isEditing) return;
+        isEditing = true;
+
+        String digits = s.toString().replace("/", "");
+        if (digits.length() > 4) digits = digits.substring(0, 4);
+
+        StringBuilder formatted = new StringBuilder();
+        for (int i = 0; i < digits.length(); i++) {
+            if (i == 2) formatted.append("/");
+            formatted.append(digits.charAt(i));
+        }
+
+        inputCardExpiry.setText(formatted.toString());
+        inputCardExpiry.setSelection(formatted.length());
+
+        cardExpiryPreview.setText(TextUtils.isEmpty(formatted) ? "••/••" : formatted.toString());
+        isEditing = false;
+    }
+});
     }
 
     private void handlePay() {
